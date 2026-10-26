@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Niña's Personal Portfolio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background-color: #4A0710;
+            font-family: 'Poppins', sans-serif;
+            color: #4A0710;
+        }
+
+        /* NAVIGATION BAR */
+        .navbar {
+            background-color: #FFFFFF;
+            padding: 16px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            border-bottom: 3px solid #C6283D;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #800020;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .nav-links a {
+            color: #4A0710;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #C6283D;
+        }
+
+        /* HOME SECTION */
+        .hero {
+            min-height: 470px;
+            padding: 55px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(
+                135deg,
+                #4A0710,
+                #800020,
+                #A51C30
+            );
+            color: #FFFFFF;
+        }
+
+        .profile-pic {
+            width: 145px;
+            height: 145px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #FFFFFF;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #FFFFFF;
+            margin: 8px 0;
+            font-weight: 700;
+        }
+
+        .hero h1 span {
+            color: #FFD9DE;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            margin: 5px 0 12px;
+            color: #FFE8EB;
+        }
+
+        .intro {
+            max-width: 580px;
+            font-size: 15px;
+            line-height: 1.8;
+            margin: 0 0 18px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 11px 22px;
+            background-color: #FFFFFF;
+            color: #800020;
+            text-decoration: none;
+            border: 2px solid #FFFFFF;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #C6283D;
+            color: #FFFFFF;
+        }
+
+        /* GENERAL SECTIONS */
+        section.content-section {
+            padding: 55px 7%;
+            text-align: center;
+            scroll-margin-top: 85px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            color: #800020;
+            font-size: 28px;
+            margin: 0 0 12px;
+        }
+
+        .section-description {
+            max-width: 650px;
+            margin: 0 auto 28px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #594047;
+        }
+
+        .white-section {
+            background-color: #FFFFFF;
+        }
+
+        .red-section {
+            background-color: #FFF0F1;
+        }
+
+        /* CARDS */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            flex-wrap: wrap;
+            gap: 18px;
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #FFFFFF;
+            padding: 24px 20px;
+            border: 1px solid #F0C5CC;
+            border-top: 5px solid #C6283D;
+            border-radius: 12px;
+            flex: 1 1 220px;
+            max-width: 310px;
+            box-shadow: 0 4px 12px rgba(74, 7, 16, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 7px 18px rgba(74, 7, 16, 0.15);
+        }
+
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            color: #800020;
+            font-size: 19px;
+            margin: 0 0 12px;
+        }
+
+        .card p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #594047;
+            margin: 0;
+        }
+
+        /* GOALS SECTION */
+        .goals {
+            background-color: #800020;
+            color: #FFFFFF;
+            padding: 55px 20px;
+            text-align: center;
+            scroll-margin-top: 85px;
+        }
+
+        .goals .section-title {
+            color: #FFFFFF;
+        }
+
+        .goals p {
+            max-width: 680px;
+            margin: 12px auto;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .quote {
+            color: #FFD9DE;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            background-color: #FFF0F1;
+            padding: 45px 20px;
+            text-align: center;
+            scroll-margin-top: 85px;
+        }
+
+        .contact p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #594047;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #4A0710;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 18px;
+            font-size: 13px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* MOBILE LAYOUT */
+        @media (max-width: 650px) {
+            .navbar {
+                justify-content: center;
+                padding: 14px 12px;
+            }
+
+            .logo {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero {
+                min-height: 420px;
+                padding: 40px 18px;
+            }
+
+            .hero h1 {
+                font-size: 27px;
+            }
+
+            .profile-pic {
+                width: 125px;
+                height: 125px;
+            }
+
+            section.content-section {
+                padding: 42px 18px;
+            }
+
+            .card {
+                flex-basis: 100%;
+                max-width: 420px;
+            }
+
+            .section-title {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="logo">MyPortfolio</div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#goals">Goals</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HOME SECTION -->
+    <header class="hero" id="home">
+
+        <!-- Keep your photo in the same folder as this HTML file -->
+        <img
+            src="Cuarteron nina.jpg"
+            alt="Photo of Niña Jane L. Cuarteron"
+            class="profile-pic"
+        >
+
+        <h1>Hello! I am <span>Niña Jane L. Cuarteron</span></h1>
+
+        <p class="subtitle">
+            Student | Learner | Future Engineer
+        </p>
+
+        <p class="intro">
+            Welcome to my personal portfolio! This website showcases
+            my interests, skills, school projects, and goals.
+            I believe that learning and creativity help me grow
+            and become a better version of myself.
+        </p>
+
+        <a href="#about" class="button">Discover More</a>
+
+    </header>
+
+    <!-- ABOUT ME -->
+    <section class="content-section white-section" id="about">
+
+        <h2 class="section-title">About Me</h2>
+
+        <p class="section-description">
+            Hello! My name is Niña Jane L. Cuarteron.
+            I am a student who enjoys learning new things,
+            exploring new hobbies, and developing useful skills.
+            I believe that hard work, creativity, and determination
+            can help me achieve my goals.
+        </p>
+
+    </section>
+
+    <!-- MY SKILLS -->
+    <section class="content-section red-section" id="skills">
+
+        <h2 class="section-title">My Skills</h2>
+
+        <p class="section-description">
+            Here are some of the skills I am developing as a student.
+        </p>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h3>Computer Skills</h3>
+                <p>
+                    I can use basic computer applications and create
+                    simple digital projects, such as websites,
+                    presentations, and digital posters.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Decision-Making</h3>
+                <p>
+                    I can consider different options carefully
+                    before making a decision.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Creativity</h3>
+                <p>
+                    I enjoy creating my own designs, solving problems,
+                    and exploring new creative ideas.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- MY SCHOOL PROJECTS -->
+    <section class="content-section white-section" id="projects">
+
+        <h2 class="section-title">My School Projects</h2>
+
+        <p class="section-description">
+            Here are some examples of projects and activities
+            that showcase my learning and creativity.
+        </p>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h3>HTML Webpage</h3>
+                <p>
+                    A personal webpage created using HTML and CSS
+                    as part of my ICT performance task.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>School Presentation</h3>
+                <p>
+                    A research presentation designed to communicate
+                    information clearly through organized content
+                    and appealing visuals.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>School Project</h3>
+                <p>
+                    A school activity that allows me to share ideas,
+                    express creativity, and practice problem-solving.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- GOALS AND DREAMS -->
+    <section class="goals" id="goals">
+
+        <h2 class="section-title">My Goals and Dreams</h2>
+
+        <p>
+            My goal is to become an engineer in the future.
+            I want to improve my knowledge and skills and use
+            my creativity to develop things that can help people.
+            I will continue learning and do my best to achieve
+            my dream.
+        </p>
+
+        <p class="quote">
+            "Great things are built one step at a time."
+        </p>
+
+    </section>
+
+    <!-- CONTACT / CLOSING SECTION -->
+    <section class="contact" id="contact">
+
+        <h2 class="section-title">Thank You for Visiting!</h2>
+
+        <p>
+            Thank you for taking the time to explore my portfolio.
+            I hope you enjoyed learning a little about me
+            and my goals!
+        </p>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Niña Jane L. Cuarteron | My Personal Portfolio</p>
+    </footer>
+
+</body>
+</html>
